@@ -474,11 +474,19 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
 .profile-identity,
 .member-identity {
   display: grid;
-  grid-template-rows: auto auto 1fr;
-  align-content: stretch;
   justify-items: center;
   gap: 14px;
   text-align: center;
+}
+
+.profile-identity {
+  grid-template-rows: auto auto 1fr;
+  align-content: stretch;
+}
+
+.member-identity {
+  grid-template-rows: auto auto;
+  align-content: start;
 }
 
 .profile-identity h3,
@@ -486,8 +494,7 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
   margin-bottom: 0;
 }
 
-.profile-identity .role,
-.member-identity .role {
+.profile-identity .role {
   align-self: end;
   margin: 0;
 }
@@ -506,6 +513,10 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
 
 .member-copy {
   min-width: 0;
+}
+
+.member-copy .role {
+  margin: 0 0 12px;
 }
 
 .profile-link {
