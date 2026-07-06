@@ -456,19 +456,30 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 10px;
   max-width: 960px;
-  margin: 24px auto 0;
+  margin: 24px 0 0;
+}
+
+.about-gallery-card {
+  display: grid;
+  align-items: center;
+  min-width: 0;
+  min-height: 128px;
+  padding: 14px;
+  margin: 0;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 10px 26px rgba(16, 32, 42, 0.08);
 }
 
 .about-gallery img {
   display: block;
   width: 100%;
-  max-height: 118px;
+  max-height: 96px;
   aspect-ratio: 4 / 3;
-  object-fit: cover;
-  background: #e7ded0;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  box-shadow: 0 10px 26px rgba(16, 32, 42, 0.1);
+  object-fit: contain;
+  background: #f7f4eb;
+  border-radius: 6px;
 }
 
 .card-index {
@@ -633,16 +644,29 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
 }
 
 .resource-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
 .resource-card.featured {
   grid-column: 1 / -1;
 }
 
-.resource-card.featured span,
 .resource-card.featured .resource-image {
-  max-width: 920px;
+  max-width: none;
+}
+
+.resource-card:not(.featured) {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-items: start;
+}
+
+.resource-card:nth-of-type(2) {
+  grid-column: 2 / span 2;
+}
+
+.resource-card:nth-of-type(3) {
+  grid-column: 4 / span 2;
 }
 
 .resource-grid strong,
@@ -668,6 +692,7 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
 }
 
 .resource-photo {
+  align-self: end;
   max-height: 210px;
   aspect-ratio: 16 / 10;
   object-fit: cover;
@@ -839,6 +864,10 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
+  .resource-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
   .collaboration-grid {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
@@ -888,6 +917,10 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
 
   .member-card {
     grid-template-columns: 1fr;
+  }
+
+  .resource-card:not(.featured) {
+    grid-column: 1 / -1;
   }
 
   .logo-card {
