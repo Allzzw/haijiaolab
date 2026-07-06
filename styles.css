@@ -648,10 +648,6 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
   grid-column: 1 / -1;
 }
 
-.resource-card.featured .resource-image {
-  max-width: none;
-}
-
 .resource-card:not(.featured) {
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -704,7 +700,7 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
 }
 
 .collaboration-grid {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -731,6 +727,10 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
 .collab-logo {
   max-width: 86px;
   object-fit: contain;
+}
+
+.collab-logo-wide {
+  max-width: 126px;
 }
 
 .collab-logo-placeholder {
@@ -866,7 +866,7 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
   }
 
   .collaboration-grid {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(7, minmax(0, 1fr));
   }
 }
 
