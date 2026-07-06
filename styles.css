@@ -406,7 +406,9 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
 .metrics,
 .research-grid,
 .team-grid,
-.resource-grid {
+.resource-grid,
+.about-gallery,
+.collaboration-grid {
   display: grid;
   gap: 18px;
 }
@@ -420,7 +422,9 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
 .research-grid article,
 .person,
 .publication-list article,
-.resource-grid a,
+.resource-card,
+.collaboration-panel,
+.collab-card,
 .timeline article {
   padding: 24px;
   background: var(--paper);
@@ -446,6 +450,22 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
 
 .research-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.about-gallery {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-top: 24px;
+}
+
+.about-gallery img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #e7ded0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 10px 26px rgba(16, 32, 42, 0.1);
 }
 
 .card-index {
@@ -613,9 +633,8 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.resource-grid a {
-  display: block;
-  text-decoration: none;
+.resource-card.featured {
+  grid-column: 1 / -1;
 }
 
 .resource-grid strong,
@@ -626,6 +645,68 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
 .resource-grid span {
   margin-top: 8px;
   color: var(--muted);
+}
+
+.resource-image {
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+  aspect-ratio: 3.2 / 1;
+  object-fit: contain;
+  background: #f7f4eb;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.resource-photo {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.collaboration-panel {
+  margin-top: 18px;
+}
+
+.collaboration-panel h3 {
+  margin-bottom: 18px;
+}
+
+.collaboration-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.collab-card {
+  display: grid;
+  grid-template-rows: 74px auto;
+  align-items: center;
+  justify-items: center;
+  gap: 14px;
+  min-width: 0;
+  padding: 16px;
+  text-align: center;
+}
+
+.collab-logo,
+.collab-logo-placeholder {
+  display: block;
+  width: 100%;
+  height: 74px;
+}
+
+.collab-logo {
+  object-fit: contain;
+}
+
+.collab-logo-placeholder {
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  background: #f6f8f8;
+}
+
+.collab-card strong {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.35;
 }
 
 .timeline {
@@ -721,8 +802,13 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
 
   .metrics,
   .research-grid,
-  .resource-grid {
+  .resource-grid,
+  .collaboration-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .team-grid {
@@ -765,6 +851,8 @@ main > section:not(.hero):not(.content-band):not(.join) > *,
   .research-grid,
   .team-grid,
   .resource-grid,
+  .about-gallery,
+  .collaboration-grid,
   .site-nav.open {
     grid-template-columns: 1fr;
   }
